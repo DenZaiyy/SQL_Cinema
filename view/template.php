@@ -30,6 +30,9 @@
                             <li>
                                 <a href="index.php?action=listDirectors">Directors</a>
                             </li>
+                            <li>
+                                <a href="index.php?action=listGenres" class="uk-disabled">Genres</a>
+                            </li>
                         </ul>
 
                     </div>
