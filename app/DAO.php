@@ -3,7 +3,7 @@
 //opens access to BDD - bddname to be determined in mysql link
 // equivalent to CONNECT::
 class DAO
-//Data Access Object :
+// DAO = Data Access Object : un patron de conception (c'est-à-dire un modèle pour concevoir une solution) utilisé dans les architectures logicielles objet.
 {
     private $bdd;
 
@@ -17,6 +17,7 @@ class DAO
         return $this->bdd;
     }
 
+    //Function pour vérifier le type de requete à exécuter, si aucun params alors la requete executera un query, sinon un prepare puis execute
     public function executeRequest($sql, $params = NULL)
     {
         // if parameters are null-> do the query
