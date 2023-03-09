@@ -16,7 +16,7 @@ spl_autoload_register(function ($class_name) {
 // variable declaration
 $ctrActor = new ActorController();
 $ctrDirector = new DirectorController();
-// $ctrFilm = new FilmController();
+$ctrFilm = new FilmController();
 // $ctrGenre = new GenreController();
 $ctrHome = new HomeController();
 // $ctrRole = new RoleController();
@@ -43,16 +43,16 @@ if (isset($_GET['action'])) {
         case "listRoles":
             $ctrRole->listRoles();
             break;
-            //DETAILS
-            // case "detailActor":
-            //     $ctrActor->detailActor($id);
-            //     break;
+            // DETAILS
+        case "detailActor":
+            $ctrActor->detailActor($id);
+            break;
         case "detailFilm":
             $ctrFilm->detailFilm($id);
             break;
-            // case "detailDirector":
-            //     $ctrDirector->detailDirector($id);
-            //     break;
+        case "detailDirector":
+            $ctrDirector->detailDirector($id);
+            break;
         case "detailGenre":
             $ctrGenre->detailGenre($id);
             break;
