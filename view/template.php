@@ -22,13 +22,18 @@
                                 <a href="index.php">Home</a>
                             </li>
                             <li>
+                                <a href="index.php?action=listFilms">Films</a>
+                            </li>
+                            <li>
                                 <a href="index.php?action=listActors">Actors</a>
                             </li>
-                            <li><a href="index.php?action=listDirectors">Directors</a></li>
+                            <li>
+                                <a href="index.php?action=listDirectors">Directors</a>
+                            </li>
                         </ul>
 
                     </div>
-                    <div class="uk-navbar-right">
+                    <!-- <div class="uk-navbar-right">
 
                         <ul class="uk-navbar-nav">
                             <li>
@@ -46,7 +51,7 @@
                                 </div>
                             </li>
                         </ul>
-                    </div>
+                    </div> -->
 
                 </div>
             </div>
