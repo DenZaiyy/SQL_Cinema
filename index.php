@@ -9,6 +9,7 @@
 // require_once "controller/HomeController.php";
 // require_once "controller/RoleController.php";
 
+// Appel de la function autoload pour charger automatiquement tout les controllers crées
 spl_autoload_register(function ($class_name) {
     require_once 'controller/' . $class_name . '.php';
 });
@@ -30,6 +31,7 @@ if (isset($_GET['action'])) {
             // LISTS 
         case "listActors":
             $ctrActor->listActors();
+            //si l'url = "...?action=listActors" alors ont fait appel au constructeur acteur et la function listActors pour récupérer la liste de tout les acteurs enregistrer
             break;
         case "listDirectors":
             $ctrDirector->listDirectors();
@@ -61,5 +63,6 @@ if (isset($_GET['action'])) {
             break;
     }
 } else {
+    //Si l'url de contient pas d'action enregistrer, ont fait appel au constructeur homepage, pour afficher la page d'acceuil par défaut
     $ctrHome->homePage();
 }
