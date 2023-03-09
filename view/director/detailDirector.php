@@ -47,6 +47,6 @@ $director = $directors->fetch();
 
 
 <?php
-$title = "Detail of";
+$title = $director["firstname"] . ' ' .  $director["lastname"];
 $content = ob_get_clean(); //def 
 require "view/template.php";

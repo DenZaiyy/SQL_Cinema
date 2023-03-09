@@ -48,6 +48,6 @@ $film = $films->fetch();
 
 
 <?php
-$title = "Detail of";
+$title = $film["title"];
 $content = ob_get_clean(); //def 
 require "view/template.php";

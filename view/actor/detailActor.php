@@ -49,6 +49,6 @@ $actor = $actors->fetch();
 
 
 <?php
-$title = "Detail of";
+$title = $actor["firstname"] . ' ' .  $actor["lastname"];
 $content = ob_get_clean(); //def 
 require "view/template.php";
