@@ -1,10 +1,3 @@
--- --------------------------------------------------------
--- Hôte:                         127.0.0.1
--- Version du serveur:           8.0.30 - MySQL Community Server - GPL
--- SE du serveur:                Win64
--- HeidiSQL Version:             12.1.0.6537
--- --------------------------------------------------------
-
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET NAMES utf8 */;
 /*!50503 SET NAMES utf8mb4 */;
@@ -14,22 +7,18 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
-
--- Listage de la structure de la base pour cinema
 CREATE DATABASE IF NOT EXISTS `cinema` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `cinema`;
 
--- Listage de la structure de table cinema. actor
 CREATE TABLE IF NOT EXISTS `actor` (
-  `Id_actor` int NOT NULL AUTO_INCREMENT,
-  `Id_person` int NOT NULL,
-  PRIMARY KEY (`Id_actor`),
-  UNIQUE KEY `Id_person` (`Id_person`),
-  CONSTRAINT `actor_ibfk_1` FOREIGN KEY (`Id_person`) REFERENCES `person` (`Id_person`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `id_actor` int NOT NULL AUTO_INCREMENT,
+  `id_person` int NOT NULL,
+  PRIMARY KEY (`id_actor`) USING BTREE,
+  UNIQUE KEY `Id_person` (`id_person`) USING BTREE,
+  CONSTRAINT `actor_ibfk_1` FOREIGN KEY (`id_person`) REFERENCES `person` (`id_person`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_bin;
 
--- Listage des données de la table cinema.actor : ~11 rows (environ)
-INSERT INTO `actor` (`Id_actor`, `Id_person`) VALUES
+INSERT INTO `actor` (`id_actor`, `id_person`) VALUES
 	(1, 6),
 	(2, 7),
 	(3, 8),
@@ -42,21 +31,19 @@ INSERT INTO `actor` (`Id_actor`, `Id_person`) VALUES
 	(10, 15),
 	(11, 16);
 
--- Listage de la structure de table cinema. casting
 CREATE TABLE IF NOT EXISTS `casting` (
-  `Id_film` int NOT NULL,
-  `Id_actor` int NOT NULL,
-  `Id_role` int NOT NULL,
-  PRIMARY KEY (`Id_film`,`Id_actor`,`Id_role`),
-  KEY `Id_actor` (`Id_actor`),
-  KEY `Id_role` (`Id_role`),
-  CONSTRAINT `casting_ibfk_1` FOREIGN KEY (`Id_film`) REFERENCES `film` (`Id_film`),
-  CONSTRAINT `casting_ibfk_2` FOREIGN KEY (`Id_actor`) REFERENCES `actor` (`Id_actor`),
-  CONSTRAINT `casting_ibfk_3` FOREIGN KEY (`Id_role`) REFERENCES `role` (`Id_role`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `id_film` int NOT NULL,
+  `id_actor` int NOT NULL,
+  `id_role` int NOT NULL,
+  PRIMARY KEY (`id_film`,`id_actor`,`id_role`) USING BTREE,
+  KEY `Id_actor` (`id_actor`) USING BTREE,
+  KEY `Id_role` (`id_role`) USING BTREE,
+  CONSTRAINT `casting_ibfk_1` FOREIGN KEY (`id_film`) REFERENCES `film` (`id_film`),
+  CONSTRAINT `casting_ibfk_2` FOREIGN KEY (`id_actor`) REFERENCES `actor` (`id_actor`),
+  CONSTRAINT `casting_ibfk_3` FOREIGN KEY (`id_role`) REFERENCES `role` (`id_role`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_bin;
 
--- Listage des données de la table cinema.casting : ~14 rows (environ)
-INSERT INTO `casting` (`Id_film`, `Id_actor`, `Id_role`) VALUES
+INSERT INTO `casting` (`id_film`, `id_actor`, `id_role`) VALUES
 	(1, 1, 1),
 	(1, 2, 2),
 	(2, 3, 3),
@@ -72,17 +59,15 @@ INSERT INTO `casting` (`Id_film`, `Id_actor`, `Id_role`) VALUES
 	(7, 10, 9),
 	(5, 11, 10);
 
--- Listage de la structure de table cinema. director
 CREATE TABLE IF NOT EXISTS `director` (
-  `Id_director` int NOT NULL AUTO_INCREMENT,
-  `Id_person` int NOT NULL,
-  PRIMARY KEY (`Id_director`),
-  UNIQUE KEY `Id_person` (`Id_person`),
-  CONSTRAINT `director_ibfk_1` FOREIGN KEY (`Id_person`) REFERENCES `person` (`Id_person`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `id_director` int NOT NULL AUTO_INCREMENT,
+  `id_person` int NOT NULL,
+  PRIMARY KEY (`id_director`) USING BTREE,
+  UNIQUE KEY `Id_person` (`id_person`) USING BTREE,
+  CONSTRAINT `director_ibfk_1` FOREIGN KEY (`id_person`) REFERENCES `person` (`id_person`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_bin;
 
--- Listage des données de la table cinema.director : ~6 rows (environ)
-INSERT INTO `director` (`Id_director`, `Id_person`) VALUES
+INSERT INTO `director` (`id_director`, `id_person`) VALUES
 	(1, 1),
 	(2, 2),
 	(3, 3),
@@ -90,39 +75,36 @@ INSERT INTO `director` (`Id_director`, `Id_person`) VALUES
 	(5, 5),
 	(6, 6);
 
--- Listage de la structure de table cinema. film
 CREATE TABLE IF NOT EXISTS `film` (
-  `Id_film` int NOT NULL AUTO_INCREMENT,
-  `title` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `id_film` int NOT NULL AUTO_INCREMENT,
+  `title` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin NOT NULL,
   `date_release` date NOT NULL,
   `duration` int NOT NULL,
-  `synopsis` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `synopsis` text CHARACTER SET utf8mb3 COLLATE utf8mb3_bin,
   `note` int DEFAULT NULL,
-  `Id_director` int NOT NULL,
-  PRIMARY KEY (`Id_film`),
-  KEY `Id_director` (`Id_director`),
-  CONSTRAINT `film_ibfk_1` FOREIGN KEY (`Id_director`) REFERENCES `director` (`Id_director`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `picture` text CHARACTER SET utf8mb3 COLLATE utf8mb3_bin,
+  `id_director` int NOT NULL,
+  PRIMARY KEY (`id_film`) USING BTREE,
+  KEY `Id_director` (`id_director`) USING BTREE,
+  CONSTRAINT `film_ibfk_1` FOREIGN KEY (`id_director`) REFERENCES `director` (`id_director`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_bin;
 
--- Listage des données de la table cinema.film : ~7 rows (environ)
-INSERT INTO `film` (`Id_film`, `title`, `date_release`, `duration`, `synopsis`, `note`, `Id_director`) VALUES
-	(1, 'Un tueur pour cible', '1998-05-27', 87, NULL, NULL, 3),
-	(2, 'Le Roi Arthur', '2004-08-04', 126, NULL, NULL, 3),
-	(3, 'La Ligne verte', '2000-03-01', 189, NULL, NULL, 2),
-	(4, 'Les Misérables', '2019-11-20', 105, NULL, NULL, 1),
-	(5, 'Batman', '1989-09-13', 125, NULL, NULL, 4),
-	(6, 'Batman, le défi', '1992-07-15', 126, NULL, NULL, 4),
-	(7, 'Batman begins', '2005-06-15', 140, NULL, NULL, 5);
+INSERT INTO `film` (`id_film`, `title`, `date_release`, `duration`, `synopsis`, `note`, `picture`, `id_director`) VALUES
+	(1, 'Un tueur pour cible', '1998-05-27', 87, NULL, NULL, 'public/img/films/un-tueur-pour-cible.jpeg', 3),
+	(2, 'Le Roi Arthur', '2004-08-04', 126, NULL, NULL, 'public/img/films/le-roi-arthur.jpg', 3),
+	(3, 'La Ligne verte', '2000-03-01', 189, NULL, NULL, 'public/img/films/la-ligne-verte.jpg', 2),
+	(4, 'Les Misérables', '2019-11-20', 105, NULL, NULL, 'public/img/films/les-miserables.jpg', 1),
+	(5, 'Batman', '1989-09-13', 125, NULL, NULL, 'public/img/films/batman.jpg', 4),
+	(6, 'Batman, le défi', '1992-07-15', 126, NULL, NULL, 'public/img/films/batman-le-defis.jpg', 4),
+	(7, 'Batman begins', '2005-06-15', 140, NULL, NULL, 'public/img/films/batman-begins.jpg', 5);
 
--- Listage de la structure de table cinema. genre
 CREATE TABLE IF NOT EXISTS `genre` (
-  `Id_genre` int NOT NULL AUTO_INCREMENT,
-  `label` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  PRIMARY KEY (`Id_genre`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `id_genre` int NOT NULL AUTO_INCREMENT,
+  `label` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin NOT NULL,
+  PRIMARY KEY (`id_genre`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_bin;
 
--- Listage des données de la table cinema.genre : ~0 rows (environ)
-INSERT INTO `genre` (`Id_genre`, `label`) VALUES
+INSERT INTO `genre` (`id_genre`, `label`) VALUES
 	(1, 'Drame'),
 	(2, 'Fantastique'),
 	(3, 'Policier'),
@@ -131,18 +113,16 @@ INSERT INTO `genre` (`Id_genre`, `label`) VALUES
 	(6, 'Historique'),
 	(7, 'Super-héros');
 
--- Listage de la structure de table cinema. movie_genre
 CREATE TABLE IF NOT EXISTS `movie_genre` (
-  `Id_film` int NOT NULL,
-  `Id_genre` int NOT NULL,
-  PRIMARY KEY (`Id_film`,`Id_genre`),
-  KEY `Id_genre` (`Id_genre`),
-  CONSTRAINT `movie_genre_ibfk_1` FOREIGN KEY (`Id_film`) REFERENCES `film` (`Id_film`),
-  CONSTRAINT `movie_genre_ibfk_2` FOREIGN KEY (`Id_genre`) REFERENCES `genre` (`Id_genre`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `id_film` int NOT NULL,
+  `id_genre` int NOT NULL,
+  PRIMARY KEY (`id_film`,`id_genre`) USING BTREE,
+  KEY `Id_genre` (`id_genre`) USING BTREE,
+  CONSTRAINT `movie_genre_ibfk_1` FOREIGN KEY (`id_film`) REFERENCES `film` (`id_film`),
+  CONSTRAINT `movie_genre_ibfk_2` FOREIGN KEY (`id_genre`) REFERENCES `genre` (`id_genre`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_bin;
 
--- Listage des données de la table cinema.movie_genre : ~0 rows (environ)
-INSERT INTO `movie_genre` (`Id_film`, `Id_genre`) VALUES
+INSERT INTO `movie_genre` (`id_film`, `id_genre`) VALUES
 	(4, 1),
 	(3, 2),
 	(1, 4),
@@ -151,44 +131,41 @@ INSERT INTO `movie_genre` (`Id_film`, `Id_genre`) VALUES
 	(6, 7),
 	(7, 7);
 
--- Listage de la structure de table cinema. person
 CREATE TABLE IF NOT EXISTS `person` (
-  `Id_person` int NOT NULL AUTO_INCREMENT,
-  `firstname` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `lastname` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `gender` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `id_person` int NOT NULL AUTO_INCREMENT,
+  `firstname` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin NOT NULL,
+  `lastname` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin NOT NULL,
+  `gender` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin NOT NULL,
   `birthDate` date NOT NULL,
-  PRIMARY KEY (`Id_person`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `picture` text CHARACTER SET utf8mb3 COLLATE utf8mb3_bin,
+  PRIMARY KEY (`id_person`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_bin;
 
--- Listage des données de la table cinema.person : ~16 rows (environ)
-INSERT INTO `person` (`Id_person`, `firstname`, `lastname`, `gender`, `birthDate`) VALUES
-	(1, 'Ly', 'Ladjy', 'H', '1978-01-03'),
-	(2, 'Frank', 'Darabont', 'H', '1959-01-28'),
-	(3, 'Antoine', 'Fuqua', 'H', '1966-01-19'),
-	(4, 'Tim', 'Burton', 'H', '1958-08-25'),
-	(5, 'Christopher', 'Nolan', 'H', '1970-07-30'),
-	(6, 'Chow', 'Yun-Fat', 'H', '1955-05-18'),
-	(7, 'Michael', 'Rooker', 'H', '1955-04-06'),
-	(8, 'Clive', 'Owen', 'H', '1964-10-03'),
-	(9, 'Ioan', 'Gruffudd', 'H', '1973-10-06'),
-	(10, 'Sofia', 'Lesaffre', 'F', '1997-04-01'),
-	(11, 'Jeanne', 'Balibar', 'F', '1968-04-13'),
-	(12, 'Michael Clarke', 'Duncan', 'H', '1957-12-10'),
-	(13, 'Tom', 'Hanks', 'H', '1956-07-09'),
-	(14, 'Michael', 'Keaton', 'H', '1951-09-05'),
-	(15, 'Christian', 'Bale', 'H', '1974-01-30'),
-	(16, 'Michelle', 'Pfeiffer', 'F', '1958-04-29');
+INSERT INTO `person` (`id_person`, `firstname`, `lastname`, `gender`, `birthDate`, `picture`) VALUES
+	(1, 'Ly', 'Ladjy', 'H', '1978-01-03', 'public/img/directors/Ladj_Ly.jpg'),
+	(2, 'Frank', 'Darabont', 'H', '1959-01-28', 'public/img/directors/Frank_Darabont.jpg'),
+	(3, 'Antoine', 'Fuqua', 'H', '1966-01-19', 'public/img/directors/Antoine_Fuqua.jpeg'),
+	(4, 'Tim', 'Burton', 'H', '1958-08-25', 'public/img/directors/Tim_Burton.jpg'),
+	(5, 'Christopher', 'Nolan', 'H', '1970-07-30', 'public/img/directors/Christopher_Nolan.jpeg'),
+	(6, 'Chow', 'Yun-Fat', 'H', '1955-05-18', 'public/img/directors/Chow_Yun-fat.jpeg'),
+	(7, 'Michael', 'Rooker', 'H', '1955-04-06', 'public/img/actors/Michael_Rooker.jpeg'),
+	(8, 'Clive', 'Owen', 'H', '1964-10-03', 'public/img/actors/Clive_Owen.jpeg'),
+	(9, 'Ioan', 'Gruffudd', 'H', '1973-10-06', 'public/img/actors/Ioan_Gruffudd.jpeg'),
+	(10, 'Sofia', 'Lesaffre', 'F', '1997-04-01', 'public/img/actors/Sofia_Lesaffre.jpeg'),
+	(11, 'Jeanne', 'Balibar', 'F', '1968-04-13', 'public/img/actors/Jeanne_Balibar.jpeg'),
+	(12, 'Michael Clarke', 'Duncan', 'H', '1957-12-10', 'public/img/actors/Michael-Clarke_Duncan.jpeg'),
+	(13, 'Tom', 'Hanks', 'H', '1956-07-09', 'public/img/actors/Tom_Hanks.jpeg'),
+	(14, 'Michael', 'Keaton', 'H', '1951-09-05', 'public/img/actors/michael_keaton.jpeg'),
+	(15, 'Christian', 'Bale', 'H', '1974-01-30', 'public/img/actors/christian_bale.jpeg'),
+	(16, 'Michelle', 'Pfeiffer', 'F', '1958-04-29', 'public/img/actors/michelle-pfeiffer.jpg');
 
--- Listage de la structure de table cinema. role
 CREATE TABLE IF NOT EXISTS `role` (
-  `Id_role` int NOT NULL AUTO_INCREMENT,
-  `label` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  PRIMARY KEY (`Id_role`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `id_role` int NOT NULL AUTO_INCREMENT,
+  `label` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin NOT NULL,
+  PRIMARY KEY (`id_role`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_bin;
 
--- Listage des données de la table cinema.role : ~10 rows (environ)
-INSERT INTO `role` (`Id_role`, `label`) VALUES
+INSERT INTO `role` (`id_role`, `label`) VALUES
 	(1, 'John Lee'),
 	(2, 'Stan Zedkov'),
 	(3, 'le Roi Arthur'),
