@@ -4,8 +4,7 @@ ob_start() //def : Enclenche la temporisation de sortie
 
 <div class="uk-section uk-section-secondary">
     <div class="uk-container">
-        <h1>Lists of directors</h1>
-        <p>Il y as <?= $directors->rowCount() ?> directors</p>
+        <h1>Lists of directors (<?= $directors->rowCount() ?>)</h1>
 
         <div class="uk-grid-match uk-child-width-1-3@m" uk-grid>
             <?php

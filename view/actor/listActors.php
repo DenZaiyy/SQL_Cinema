@@ -5,8 +5,7 @@ ob_start() //def :
 <div class="uk-section uk-section-secondary">
     <div class="uk-container">
 
-        <h1>Lists of actors</h1>
-        <p>Il y as <?= $actors->rowCount() ?> acteurs</p>
+        <h1>Lists of actors (<?= $actors->rowCount() ?>)</h1>
 
         <div class="uk-grid-match uk-child-width-1-3@m" uk-grid>
 
