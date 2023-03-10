@@ -7,16 +7,25 @@ ob_start(); //def :
         <h1>Lists of films</h1>
         <p>We order this list by the most recent date</p>
 
-        <div class="uk-grid-match uk-child-width-1-3@m" uk-grid>
+        <div class="uk-grid-match uk-grid-small" uk-grid>
+
             <?php
             while ($film = $films->fetch()) { ?>
 
-                <figure>
-                    <img src="<?= $film["picture"] ?>" alt="picture of <?= $film["title"] ?>" style="height: auto; max-width: 310px;">
-                    <figcaption>
-                        <p><?= $film["title"] . " - duration: " . $film["duration"] . ' - date of release: ' .  $film["dateRealease"] ?></p>
-                    </figcaption>
-                </figure>
+                <div class="uk-width-auto uk-height-match" uk-scrollspy="target: > div; cls: uk-animation-fade; delay: 500">
+                    <div class="uk-card uk-card-small uk-card-default uk-height-match">
+                        <figure class="uk-padding-small uk-height-match uk-margin-remove">
+                            <a href="index.php?action=detailFilm&id=<?= $film['id_film']; ?>">
+                                <img src="<?= $film["picture"] ?>" alt="picture of <?= $film["title"] ?>" width="310px" height="auto">
+                            </a>
+                            <figcaption class="uk-text-center uk-margin-small-top">
+                                <strong class="uk-margin-remove"><?= $film["title"] ?></strong>
+                                <p class="uk-margin-remove">Duration: <?= $film["duration"] ?></p>
+                                <p class="uk-margin-remove">Date of release: <?= $film["dateRealease"] ?></p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
 
             <?php }
             ?>
