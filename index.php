@@ -18,7 +18,7 @@ spl_autoload_register(function ($class_name) {
 $ctrActor = new ActorController();
 $ctrDirector = new DirectorController();
 $ctrFilm = new FilmController();
-// $ctrGenre = new GenreController();
+$ctrGenre = new GenreController();
 $ctrHome = new HomeController();
 // $ctrRole = new RoleController();
 
@@ -58,9 +58,9 @@ if (isset($_GET['action'])) {
         case "detailGenre":
             $ctrGenre->detailGenre($id);
             break;
-        case "detailRole":
-            $ctrRole->detailRole($id);
-            break;
+            // case "detailRole":
+            //     $ctrRole->detailRole($id);
+            //     break;
     }
 } else {
     //Si l'url de contient pas d'action enregistrer, ont fait appel au constructeur homepage, pour afficher la page d'acceuil par défaut
