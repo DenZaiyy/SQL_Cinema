@@ -4,20 +4,23 @@ ob_start(); //def : Enclenche la temporisation de sortie
 
 <div class="uk-section uk-section-secondary">
     <div class="uk-container">
-        <h1>Lists of directors (<?= $directors->rowCount() ?>)</h1>
+        <h1>Lists of directors <span class="uk-badge"><?= $directors->rowCount() ?></span></h1>
 
-        <div class="uk-grid-match uk-grid-medium" uk-grid>
+        <div class="uk-grid-match uk-flex-center uk-grid-small" uk-grid>
             <?php
             while ($director = $directors->fetch()) { ?>
-                <div>
-                    <figure>
-                        <a href="index.php?action=detailDirector&id=<?= $director['id_director'] ?>">
-                            <img src="<?= $director["picture"] ?>" alt="picture of <?= $director["firstname"] . ' ' .  $director["lastname"] ?>" style="height: auto; max-width: 250px;">
-                        </a>
-                        <figcaption>
-                            <p><?= $director["firstname"] . ' ' .  $director["lastname"] ?></p>
-                        </figcaption>
-                    </figure>
+                <div class="uk-width-auto uk-height-match" uk-scrollspy="target: > div; cls: uk-animation-fade; delay: 500">
+
+                    <div class="uk-card uk-card-small uk-card-default uk-height-match">
+                        <figure class="uk-padding-small uk-height-match">
+                            <a href="index.php?action=detailDirector&id=<?= $director['id_director'] ?>">
+                                <img src="<?= $director["picture"] ?>" alt="picture of <?= $director["firstname"] . ' ' .  $director["lastname"] ?>" width="250">
+                            </a>
+                            <figcaption>
+                                <p class="uk-text-center uk-margin-small-top"><?= $director["firstname"] . ' ' .  $director["lastname"] ?></p>
+                            </figcaption>
+                        </figure>
+                    </div>
                 </div>
 
             <?php }

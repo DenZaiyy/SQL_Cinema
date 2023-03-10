@@ -5,22 +5,21 @@ ob_start(); //def :
 <div class="uk-section uk-section-secondary">
     <div class="uk-container">
 
-        <h1>Lists of actors (<?= $actors->rowCount() ?>)</h1>
+        <h1>Lists of actors <span class="uk-badge"><?= $actors->rowCount() ?></span></h1>
 
-        <div class="uk-grid-small" uk-grid>
-
+        <div class="uk-grid-match uk-grid-small uk-flex-center" uk-grid>
 
             <?php
             while ($actor = $actors->fetch()) { ?>
 
-                <div class="uk-width-auto@m uk-height-match" uk-scrollspy="target: > div; cls: uk-animation-fade; delay: 500">
-                    <div class="uk-card uk-card-default uk-height-match">
-                        <figure class="uk-padding uk-height-match">
+                <div class="uk-width-auto uk-height-match" uk-scrollspy="target: > div; cls: uk-animation-fade; delay: 500">
+                    <div class="uk-card uk-card-small uk-card-default uk-height-match">
+                        <figure class="uk-padding-small uk-height-match">
                             <a href="index.php?action=detailActor&id=<?= $actor['id_actor'] ?>">
-                                <img src="<?= $actor["picture"] ?>" alt="picture of <?= $actor["firstname"] . ' ' .  $actor["lastname"] ?>" width="250px">
+                                <img src="<?= $actor["picture"] ?>" alt="picture of <?= $actor["firstname"] . ' ' .  $actor["lastname"] ?>" width="250">
                             </a>
                             <figcaption>
-                                <p><?= $actor["firstname"] . ' ' .  $actor["lastname"] ?></p>
+                                <p class="uk-text-center uk-margin-small-top"><?= $actor["firstname"] . ' ' .  $actor["lastname"] ?></p>
                             </figcaption>
                         </figure>
                     </div>
