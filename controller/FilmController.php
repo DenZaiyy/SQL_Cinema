@@ -24,9 +24,18 @@ class FilmController
                 WHERE id_film = :id
                 ORDER BY date_release DESC';
 
+        $sql2 = 'SELECT p.id_person, p.lastname, p.firstname, p.gender, r.label
+                 FROM casting c, person p, film f, actor a, role r
+                 WHERE c.id_actor = a.id_actor
+                 AND c.id_role = r.id_role
+                 AND a.id_person = p.id_person
+                 AND c.id_film = f.id_film
+                 AND c.id_film = :id';
+
         $params = ['id' => $id];
 
         $films = $dao->executeRequest($sql, $params);
+        $castings = $dao->executeRequest($sql2, $params);
         require 'view/film/detailFilm.php';
     }
 }

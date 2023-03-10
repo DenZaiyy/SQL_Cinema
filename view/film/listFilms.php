@@ -4,20 +4,24 @@ ob_start(); //def : Enclenche la temporisation de sortie
 
 <div class="uk-section uk-section-secondary">
     <div class="uk-container">
-        <h1>Lists of films</h1>
+        <h1>Lists of films <span class="uk-badge"><?= $films->rowCount() ?></span></h1>
 
-        <div class="uk-grid-match uk-child-width-1-3@m" uk-grid>
+        <div class="uk-grid-match uk-grid-small" uk-grid>
             <?php
             while ($film = $films->fetch()) { ?>
 
-                <div>
-                    <figure>
-                        <a href="index.php?action=detailFilm&id=<?= $film['id_film']; ?>">
-                            <img src="<?= $film["picture"]; ?>" alt="picture of film : <?= $film["title"]; ?>" width="310px" height="auto">
-                        </a>
-                    </figure>
+                <div class="uk-width-auto uk-height-match" uk-scrollspy="target: > div; cls: uk-animation-fade; delay: 500">
+                    <div class="uk-card uk-card-small uk-card-default uk-height-match">
+                        <figure class="uk-padding-small uk-height-match">
+                            <a href="index.php?action=detailFilm&id=<?= $film['id_film']; ?>">
+                                <img src="<?= $film["picture"]; ?>" alt="picture of film : <?= $film["title"]; ?>" width="300">
+                            </a>
+                            <figcaption class="uk-text-center uk-margin-small-top">
+                                <strong><?= $film['title'] ?></strong>
+                            </figcaption>
+                        </figure>
 
-                    <strong><?= $film['title'] ?></strong>
+                    </div>
                 </div>
 
             <?php }
