@@ -9,7 +9,13 @@ class DAO
 
     public function __construct()
     {
-        $this->bdd = new PDO('mysql:host=localhost;dbname=cinema;charset=utf8', 'root', '');
+        $db_host = "db";
+        $db_name = "cinema";
+        $db_user = "root";
+        $db_pass = "test123";
+
+        // $this->bdd = new PDO('mysql:host=localhost;dbname=cinema;charset=utf8', 'root', '');
+        $this->bdd = new PDO('mysql:host=' . $db_host . ';dbname=' . $db_name . ';charset=utf8', $db_user, $db_pass);
     }
 
     function getBDD()
