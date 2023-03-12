@@ -6,7 +6,9 @@ ob_start(); //def : Enclenche la temporisation de sortie
     <div class="uk-container">
         <h1>Lists of films <span class="uk-badge"><?= $films->rowCount() ?></span></h1>
 
-        <div class="uk-grid-match uk-grid-small" uk-grid>
+        <a class="uk-button uk-button-primary" href="index.php?action=addFilm">Add new film</a>
+
+        <div class="uk-grid-match uk-grid-small uk-margin-top" uk-grid>
             <?php
             while ($film = $films->fetch()) { ?>
 
