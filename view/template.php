@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="public/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.5.9/css/uikit.min.css">
+    <link rel="shortcut icon" href="../public/img/icons8-film-projector-48.png" type="image/x-icon">
     <title><?= $title ?></title>
 </head>
 
