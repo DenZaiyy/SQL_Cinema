@@ -61,6 +61,9 @@ if (isset($_GET['action'])) {
             // case "detailRole":
             //     $ctrRole->detailRole($id);
             //     break;
+            // ADDS
+        case "addFilm":
+            $ctrFilm->addFilm($title, $date, $duration, $synopsis, $note, $picture);
     }
 } else {
     //Si l'url de contient pas d'action enregistrer, ont fait appel au constructeur homepage, pour afficher la page d'acceuil par défaut

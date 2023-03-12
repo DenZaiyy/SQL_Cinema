@@ -38,4 +38,22 @@ class FilmController
         $castings = $dao->executeRequest($sql2, $params);
         require 'view/film/detailFilm.php';
     }
+
+    public function addFilm($title, $date, $duration, $synopsis, $note, $picture)
+    {
+        $dao = new DAO();
+
+
+        $sql = "INSERT INTO film (title, date_release, duration, synopsis, note, picture)
+                VALUES (:title, :date, :duration, :synopsis, :note, :picture";
+
+        $params = [
+            'title' => $title,
+            'date' => $date,
+            'duration' => $duration,
+            'synopsis' => $synopsis,
+            'note' => $note,
+            'picture' => $picture
+        ];
+    }
 }
