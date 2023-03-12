@@ -33,7 +33,7 @@ $film = $films->fetch();
                             <td><?= $film['title']; ?></td>
                             <td><?= $film['Year']; ?></td>
                             <td><?= $film['duration']; ?></td>
-                            <td><?= $film['note']; ?></td>
+                            <td><?= $film['note']; ?> / 5</td>
                         </tr>
                     </tbody>
                 </table>
