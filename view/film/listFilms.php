@@ -6,7 +6,7 @@ ob_start(); //def : Enclenche la temporisation de sortie
     <div class="uk-container">
         <h1>Lists of films <span class="uk-badge"><?= $films->rowCount() ?></span></h1>
 
-        <a class="uk-button uk-button-primary" href="index.php?action=addFilm">Add new film</a>
+        <a class="uk-button uk-button-primary" href="index.php?action=formFilm">Add new film</a>
 
         <div class="uk-grid-match uk-grid-small uk-margin-top" uk-grid>
             <?php
