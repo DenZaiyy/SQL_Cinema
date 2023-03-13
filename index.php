@@ -42,9 +42,9 @@ if (isset($_GET['action'])) {
         case "listGenres":
             $ctrGenre->listGenres();
             break;
-        case "listRoles":
-            $ctrRole->listRoles();
-            break;
+            // case "listRoles":
+            //     $ctrRole->listRoles();
+            //     break;
             // DETAILS
         case "detailActor":
             $ctrActor->detailActor($id);
@@ -62,8 +62,12 @@ if (isset($_GET['action'])) {
             //     $ctrRole->detailRole($id);
             //     break;
             // ADDS
+        case "formFilm":
+            $ctrFilm->formFilm();
+            break;
         case "addFilm":
-            $ctrFilm->addFilm($title, $date, $duration, $synopsis, $note, $picture);
+            $ctrFilm->addFilm();
+            break;
     }
 } else {
     //Si l'url de contient pas d'action enregistrer, ont fait appel au constructeur homepage, pour afficher la page d'acceuil par défaut

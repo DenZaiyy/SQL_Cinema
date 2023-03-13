@@ -39,21 +39,45 @@ class FilmController
         require 'view/film/detailFilm.php';
     }
 
-    public function addFilm($title, $date, $duration, $synopsis, $note, $picture)
+    public function formFilm()
+    {
+        require 'view/film/addFilm.php';
+    }
+
+    public function addFilm()
     {
         $dao = new DAO();
+        $db = $dao->getBDD();
 
 
-        $sql = "INSERT INTO film (title, date_release, duration, synopsis, note, picture)
-                VALUES (:title, :date, :duration, :synopsis, :note, :picture";
+        if (isset($_POST['submit']) || !empty($_POST['submit'])) {
+            $title = filter_input(INPUT_POST, "title", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+            $date = $_POST['date'];
+            $duration = filter_input(INPUT_POST, "duration", FILTER_VALIDATE_INT);
+            $note = filter_input(INPUT_POST, "note", FILTER_VALIDATE_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
+            $synopsis = filter_input(INPUT_POST, "synopsis", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+            $picture = $_POST['picture'];
 
-        $params = [
-            'title' => $title,
-            'date' => $date,
-            'duration' => $duration,
-            'synopsis' => $synopsis,
-            'note' => $note,
-            'picture' => $picture
-        ];
+            $sql = "INSERT INTO film (title, date_release, duration, synopsis, note, picture)
+                VALUES (':title', ':date', ':duration', ':synopsis', ':note', ':picture'";
+
+            $params = [
+                'title' => $title,
+                'date' => $date,
+                'duration' => $duration,
+                'synopsis' => $synopsis,
+                'note' => $note,
+                'picture' => $picture
+            ];
+
+            if ($title && $date && $duration) {
+                $dao->executeRequest($sql, $params);
+                $id = $db->lastInsertId();
+                $this->detailFilm($id);
+                require 'view/film/detailFilm.php';
+            }
+        } else {
+            header('Location: index.php');
+        }
     }
 }
