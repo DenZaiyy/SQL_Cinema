@@ -7,7 +7,7 @@ services:
       - "./:/var/www/html" #sync project dir with container web dir
     ports:
       - 80:80
-      - 443:443 #for future ssl traffic
+      # - 443:443 #for future ssl traffic
 
   db:
     image: mysql:8.0.30
