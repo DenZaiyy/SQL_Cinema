@@ -1,6 +1,5 @@
 <?php
 ob_start();
-// require_once "controller/DirectorController.php";
 
 ?>
 
@@ -35,9 +34,9 @@ ob_start();
                 </select>
             </div>
             <div class="uk-margin-small uk-width-1-1">
-                <?php foreach ($genres as $genre) {
-                    echo '<label class="uk-margin-small-left"><input class="uk-checkbox" type="checkbox" id="' . $genre['id_genre'] . '"> ' . $genre['label'] . '</label>';
-                } ?>
+                <?php foreach ($genres as $genre) { ?>
+                    <label class="uk-margin-small-left"><input class="uk-checkbox" type="checkbox" name="id_genre" value="<?= $genre['id_genre'] ?>"> <?= $genre['label'] ?></label>
+                <?php } ?>
             </div>
             <div class="uk-margin-small uk-width-1-2">
                 <input type="submit" name="submit" value="Add film" class="uk-button uk-button-default uk-width-1-1">

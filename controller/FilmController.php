@@ -69,11 +69,15 @@ class FilmController
             $note = filter_input(INPUT_POST, "note", FILTER_VALIDATE_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
             $synopsis = filter_input(INPUT_POST, "synopsis", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
             $director = $_POST['directors'];
+            $genre = $_POST['id_genre'];
 
-            if ($title && $date && $duration && $synopsis && $note && $director) {
+            if ($title && $date && $duration && $synopsis && $note && $director && $genre) {
 
                 $sql = "INSERT INTO film (title, date_release, duration, synopsis, note, id_director)
                     VALUES (:title, :date, :duration, :synopsis, :note, :director)";
+
+                $sql2 = 'INSERT INTO movie_genre (id_film, id_genre)
+                         VALUES (LAST_INSERT_ID(), :id_genre)';
 
                 $params = [
                     'title' => $title,
@@ -84,10 +88,16 @@ class FilmController
                     'director' => $director
                 ];
 
+                $params2 = [
+                    'id_genre' => $genre
+                ];
+
                 $addFilm = $dao->executeRequest($sql, $params);
+                $addGenre = $dao->executeRequest($sql2, $params2);
 
                 $id = $db->lastInsertId();
                 $this->detailFilm($id);
+
                 require 'view/film/detailFilm.php';
             }
         } else {
