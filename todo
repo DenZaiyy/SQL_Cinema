@@ -2,4 +2,5 @@ TODO:
     - Faire les formulaires pour ajouter:
           - Réalisateur (ajout de personne puis add lastid to real)
           - Role d'un acteur pour un film
+          - Upload de l'image dans le dossier public/img et le dossier concerné
     - Liste des rôles (au clique d'un role, afficher le détail du rôle (Liste des acteurs ayant joué ce role, et le film))
