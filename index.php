@@ -30,8 +30,8 @@ if (isset($_GET['action'])) {
             // add as the functions are added to fill all cases possible
             // LISTS 
         case "listActors":
-            $ctrActor->listActors();
             //si l'url = "...?action=listActors" alors ont fait appel au constructeur acteur et la function listActors pour récupérer la liste de tout les acteurs enregistrer
+            $ctrActor->listActors();
             break;
         case "listDirectors":
             $ctrDirector->listDirectors();
@@ -62,11 +62,36 @@ if (isset($_GET['action'])) {
             $ctrRole->detailRole($id);
             break;
             // ADDS
-        case "formFilm":
-            $ctrFilm->formFilm();
+        case "addActor":
+            $ctrActor->addActor();
             break;
         case "addFilm":
             $ctrFilm->addFilm();
+            break;
+        case "addDirector":
+            $ctrDirector->addDirector();
+            break;
+        case "addGenre":
+            $ctrGenre->addGenre();
+            break;
+        case "addRole":
+            $ctrRole->addRole();
+            break;
+            // FORMS
+        case "formActor":
+            $ctrActor->formActor();
+            break;
+        case "formFilm":
+            $ctrFilm->formFilm();
+            break;
+        case "formDirector":
+            $ctrDirector->formDirector();
+            break;
+        case "formGenre":
+            $ctrGenre->formGenre();
+            break;
+        case "formRole":
+            $ctrRole->formRole();
             break;
     }
 } else {

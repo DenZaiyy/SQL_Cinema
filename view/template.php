@@ -48,10 +48,10 @@
                                 <div class="uk-navbar-dropdown">
                                     <ul class="uk-nav uk-navbar-dropdown-nav">
                                         <li><a href="index.php?action=formFilm" class="uk-button uk-button-default">Add film</a></li>
-                                        <li><a href="index.php?action=formDirector" class="uk-button uk-button-default uk-margin-small-top uk-disabled">Add director</a></li>
-                                        <li><a href="index.php?action=formActor" class="uk-button uk-button-default uk-margin-small-top uk-disabled">Add actor</a></li>
-                                        <li><a href="index.php?action=formRole" class="uk-button uk-button-default uk-margin-small-top uk-disabled">Add role</a></li>
-                                        <li><a href="index.php?action=formGenre" class="uk-button uk-button-default uk-margin-small-top uk-disabled">Add genre</a></li>
+                                        <li><a href="index.php?action=formDirector" class="uk-button uk-button-danger uk-margin-small-top uk-disabled">Add director</a></li>
+                                        <li><a href="index.php?action=formActor" class="uk-button uk-button-default uk-margin-small-top">Add actor</a></li>
+                                        <li><a href="index.php?action=formRole" class="uk-button uk-button-default uk-margin-small-top ">Add role</a></li>
+                                        <li><a href="index.php?action=formGenre" class="uk-button uk-button-default uk-margin-small-top">Add genre</a></li>
                                         <!-- <li class="uk-nav-header">Header</li>
                                         <li><a href="#">Item</a></li>
                                         <li><a href="#">Item</a></li>
