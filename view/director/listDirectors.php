@@ -14,10 +14,10 @@ ob_start(); //def : Enclenche la temporisation de sortie
                     <div class="uk-card uk-card-small uk-card-default uk-height-match">
                         <figure class="uk-padding-small uk-height-match">
                             <a href="index.php?action=detailDirector&id=<?= $director['id_director'] ?>">
-                                <img src="<?= $director["picture"] ?>" alt="picture of <?= $director["firstname"] . ' ' .  $director["lastname"] ?>" width="250">
+                                <img src="<?= $director["picture"] ?>" alt="picture of <?= strtoupper($director["lastname"]) . ' ' . $director["firstname"] ?>" width="250">
                             </a>
                             <figcaption>
-                                <p class="uk-text-center uk-margin-small-top"><?= $director["firstname"] . ' ' .  $director["lastname"] ?></p>
+                                <p class="uk-text-center uk-margin-small-top"><?= strtoupper($director["lastname"]) . ' ' . $director["firstname"] ?></p>
                             </figcaption>
                         </figure>
                     </div>

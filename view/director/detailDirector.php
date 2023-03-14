@@ -12,14 +12,14 @@ $director = $directors->fetch();
 
             <div class="uk-width-auto">
                 <figure>
-                    <img src="<?= $director["picture"] ?>" alt="picture of <?= $director["firstname"] . ' ' .  $director["lastname"] ?>" style="height: auto; width: 300px;">
+                    <img src="<?= $director["picture"] ?>" alt="picture of <?= strtoupper($director["lastname"]) . ' ' . $director["firstname"] ?>" style="height: auto; width: 300px;">
                 </figure>
             </div>
 
             <div class="uk-width-auto">
-                <h1>Details of <strong><?= $director["firstname"] . ' ' .  $director["lastname"] ?></strong></h1>
+                <h1>Details of <strong><?= strtoupper($director["lastname"]) . ' ' . $director["firstname"] ?></strong></h1>
 
-                <p class="uk-margin">We have a filmographie of <strong><?= $director["firstname"] . ' ' .  $director["lastname"] ?></strong></p>
+                <p class="uk-margin">We have a filmographie of <strong><?= strtoupper($director["lastname"]) . ' ' . $director["firstname"] ?></strong></p>
 
                 <table class="uk-table uk-table-striped uk-text-center">
                     <thead>
@@ -47,6 +47,6 @@ $director = $directors->fetch();
 
 
 <?php
-$title = $director["firstname"] . ' ' .  $director["lastname"];
+$title = strtoupper($director["lastname"]) . ' ' . $director["firstname"];
 $content = ob_get_clean(); //def 
 require "view/template.php";
