@@ -29,6 +29,7 @@ ob_start();
             <div class="uk-margin-small uk-width-1-2">
                 <label for="film">Film:</label>
                 <select name="film" class="uk-select">
+                    <option selected></option>
                     <?php foreach ($films as $film) { ?>
                         <option value="<?= $film['id_film'] ?>"><?= $film['title'] ?></option>
                     <? } ?>
@@ -37,6 +38,7 @@ ob_start();
             <div class="uk-margin-small uk-width-1-2">
                 <label for="role">Role:</label>
                 <select name="role" class="uk-select">
+                    <option selected></option>
                     <?php foreach ($roles as $role) { ?>
                         <option value="<?= $role['id_role'] ?>"><?= $role['label'] ?></option>
                     <? } ?>
