@@ -16,10 +16,10 @@ ob_start(); //def :
                     <div class="uk-card uk-card-small uk-card-default uk-height-match">
                         <figure class="uk-padding-small uk-height-match">
                             <a href="index.php?action=detailActor&id=<?= $actor['id_actor'] ?>">
-                                <img src="<?= $actor["picture"] ?>" alt="picture of <?= $actor["firstname"] . ' ' .  $actor["lastname"] ?>" width="250">
+                                <img src="<?= $actor["picture"] ?>" alt="picture of <?= strtoupper($actor["lastname"]) . ' ' . $actor["firstname"]  ?>" width="250">
                             </a>
                             <figcaption>
-                                <p class="uk-text-center uk-margin-small-top"><?= $actor["firstname"] . ' ' .  $actor["lastname"] ?></p>
+                                <p class="uk-text-center uk-margin-small-top"><?= strtoupper($actor["lastname"]) . ' ' . $actor["firstname"] ?></p>
                             </figcaption>
                         </figure>
                     </div>

@@ -12,14 +12,14 @@ $actor = $actors->fetch();
 
             <div class="uk-width-auto">
                 <figure>
-                    <img src="<?= $actor["picture"] ?>" alt="picture of <?= $actor["firstname"] . ' ' .  $actor["lastname"] ?>" style="height: auto; max-width: 300px;">
+                    <img src="<?= $actor["picture"] ?>" alt="picture of <?= strtoupper($actor["lastname"]) . ' ' . $actor["firstname"] ?>" style="height: auto; max-width: 300px;">
                 </figure>
             </div>
 
             <div class="uk-width-auto">
-                <h1>Details of <strong><?= $actor["firstname"] . ' ' .  $actor["lastname"] ?></strong></h1>
+                <h1>Details of <strong><?= strtoupper($actor["lastname"]) . ' ' . $actor["firstname"] ?></strong></h1>
 
-                <p class="uk-margin">We have a filmographie of <strong><?= $actor["firstname"] . ' ' .  $actor["lastname"] ?></strong></p>
+                <p class="uk-margin">We have a filmographie of <strong><?= strtoupper($actor["lastname"]) . ' ' . $actor["firstname"] ?></strong></p>
 
                 <table class="uk-table uk-table-striped uk-text-center">
                     <thead>
@@ -49,6 +49,6 @@ $actor = $actors->fetch();
 
 
 <?php
-$title = $actor["firstname"] . ' ' .  $actor["lastname"];
+$title = strtoupper($actor["lastname"]) . ' ' . $actor["firstname"];
 $content = ob_get_clean(); //def 
 require "view/template.php";
