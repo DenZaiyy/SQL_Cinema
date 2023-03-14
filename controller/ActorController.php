@@ -39,4 +39,71 @@ class ActorController
         $cast = $dao->executeRequest($sql2, $params);
         require 'view/actor/detailActor.php';
     }
+
+    public function formActor()
+    {
+        $dao = new DAO();
+
+        $sql = 'SELECT id_film, title
+                FROM film';
+
+        $sql2 = 'SELECT id_role, label
+                 FROM role';
+
+        $films = $dao->executeRequest($sql);
+        $roles = $dao->executeRequest($sql2);
+
+        require 'view/actor/addActor.php';
+    }
+
+    public function addActor()
+    {
+        $dao = new DAO();
+        $db = $dao->getBDD();
+
+        if (isset($_POST['submit'])) {
+            $firstname = filter_input(INPUT_POST, "firstname", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+            $lastname = filter_input(INPUT_POST, "lastname", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+            $gender = filter_input(INPUT_POST, "gender", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+            $dob = $_POST['dateOfBirth'];
+            $film = filter_input(INPUT_POST, "film", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+            $role = filter_input(INPUT_POST, "role", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+
+            if ($firstname && $lastname && $gender && $dob && $film && $role) {
+
+                $sql = "INSERT INTO person (firstname, lastname, gender, birthDate)
+                        VALUES (:firstname, :lastname, :gender, :birthdate)";
+
+                $sql2 = "INSERT INTO actor (id_person)
+                         VALUES (LAST_INSERT_ID())";
+
+                $sql3 = 'INSERT INTO casting (id_film, id_actor, id_role)
+                         VALUES (:film, LAST_INSERT_ID(), :id_role)';
+
+                $params = [
+                    'firstname' => $firstname,
+                    'lastname' => $lastname,
+                    'gender' => $gender,
+                    'birthdate' => $dob
+                ];
+
+                $params2 = [
+                    'film' => $film,
+                    'id_role' => $role
+                ];
+
+                $addPerson = $dao->executeRequest($sql, $params);
+                $addActor = $dao->executeRequest($sql2);
+
+                $id = $db->lastInsertId();
+                $this->detailActor($id);
+
+                $addCasting = $dao->executeRequest($sql3, $params2);
+
+                require 'view/actor/detailActor.php';
+            }
+        } else {
+            header('Location: index.php');
+        }
+    }
 }
