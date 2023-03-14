@@ -32,4 +32,38 @@ class GenreController
         $genres = $dao->executeRequest($sql, $params);
         require 'view/genre/detailGenre.php';
     }
+
+    public function formGenre()
+    {
+        require 'view/genre/addGenre.php';
+    }
+
+    public function addGenre()
+    {
+        $dao = new DAO();
+        $db = $dao->getBDD();
+
+        if (isset($_POST['submit'])) {
+            $label = filter_input(INPUT_POST, "label", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+
+            if ($label) {
+
+                $sql = "INSERT INTO genre (label)
+                        VALUES (:label)";
+
+                $params = [
+                    'label' => $label
+                ];
+
+                $addGenre = $dao->executeRequest($sql, $params);
+
+                $id = $db->lastInsertId();
+                $this->detailGenre($id);
+
+                header('Location: index.php?action=detailGenre?id=' . $id);
+            }
+        } else {
+            header('Location: index.php');
+        }
+    }
 }
