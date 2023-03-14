@@ -34,6 +34,9 @@
                             <li>
                                 <a href="index.php?action=listGenres">Genres</a>
                             </li>
+                            <li>
+                                <a href="index.php?action=listRoles">Roles</a>
+                            </li>
                         </ul>
 
                     </div>

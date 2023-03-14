@@ -20,7 +20,7 @@ $ctrDirector = new DirectorController();
 $ctrFilm = new FilmController();
 $ctrGenre = new GenreController();
 $ctrHome = new HomeController();
-// $ctrRole = new RoleController();
+$ctrRole = new RoleController();
 
 if (isset($_GET['action'])) {
     // if there is an id, get the id and use it.
@@ -42,9 +42,9 @@ if (isset($_GET['action'])) {
         case "listGenres":
             $ctrGenre->listGenres();
             break;
-            // case "listRoles":
-            //     $ctrRole->listRoles();
-            //     break;
+        case "listRoles":
+            $ctrRole->listRoles();
+            break;
             // DETAILS
         case "detailActor":
             $ctrActor->detailActor($id);
@@ -58,9 +58,9 @@ if (isset($_GET['action'])) {
         case "detailGenre":
             $ctrGenre->detailGenre($id);
             break;
-            // case "detailRole":
-            //     $ctrRole->detailRole($id);
-            //     break;
+        case "detailRole":
+            $ctrRole->detailRole($id);
+            break;
             // ADDS
         case "formFilm":
             $ctrFilm->formFilm();
