@@ -38,4 +38,38 @@ class RoleController
         $cast = $dao->executeRequest($sql2, $params);
         require 'view/role/detailRole.php';
     }
+
+    public function formRole()
+    {
+        require 'view/role/addRole.php';
+    }
+
+    public function addRole()
+    {
+        $dao = new DAO();
+        $db = $dao->getBDD();
+
+        if (isset($_POST['submit'])) {
+            $label = filter_input(INPUT_POST, "label", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+
+            if ($label) {
+
+                $sql = "INSERT INTO role (label)
+                        VALUES (:label)";
+
+                $params = [
+                    'label' => $label
+                ];
+
+                $addRole = $dao->executeRequest($sql, $params);
+
+                $id = $db->lastInsertId();
+                $this->detailRole($id);
+
+                header('Location: index.php?action=detailRole?id=' . $id);
+            }
+        } else {
+            header('Location: index.php');
+        }
+    }
 }
