@@ -2,6 +2,6 @@ TODO:
     - Faire les formulaires pour ajouter:
           - Acteur (ajout de personne puis add lastid to acteur)
           - Réalisateur (ajout de personne puis add lastid to real)
-          - Film (ajout d'un film, puis donner le réalisateur du film)
           - Genre de film
           - Role d'un acteur
+    - Liste des rôles (au clique d'un role, afficher le détail du rôle (Liste des acteurs ayant joué ce role, et le film))
