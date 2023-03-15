@@ -40,7 +40,15 @@
                         </ul>
 
                     </div>
+
                     <div class="uk-navbar-right">
+
+                        <div class="uk-margin-right">
+                            <form class="uk-search uk-search-default">
+                                <span uk-search-icon></span>
+                                <input class="uk-search-input" type="search" name="searchbar" placeholder="Search" aria-label="Search">
+                            </form>
+                        </div>
 
                         <ul class="uk-navbar-nav">
                             <li>
