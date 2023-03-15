@@ -1,6 +1,10 @@
 TODO:
-    - Faire les formulaires pour ajouter:
-          - Réalisateur (ajout de personne puis add lastid to real)
-          - Role d'un acteur pour un film
-          - Upload de l'image dans le dossier public/img et le dossier concerné
-    - Liste des rôles (au clique d'un role, afficher le détail du rôle (Liste des acteurs ayant joué ce role, et le film))
+      - Faire les formulaires pour ajouter:
+            - Réalisateur (ajout de personne puis add lastid to real)
+            - Role d'un acteur pour un film
+      - Liste des rôles (au clique d'un role, afficher le détail du rôle (Liste des acteurs ayant joué ce role, et le film))
+
+      - Ajout barre de recherche fonctionnel au menu
+      - 5 films les plus récent sur la homepage
+      - 5 films les mieux notés sur la homepage
+      - TESTER en AJAX
