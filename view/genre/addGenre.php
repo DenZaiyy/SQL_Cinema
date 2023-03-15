@@ -14,7 +14,7 @@ ob_start();
                 <input type="submit" name="submit" value="Add genre" class="uk-button uk-button-default uk-width-1-1">
             </div>
             <div class="uk-margin-small uk-width-1-2">
-                <input type="reset" value="Reset values" class="uk-button uk-button-default uk-width-1-1">
+                <input type="reset" value="Reset value" class="uk-button uk-button-default uk-width-1-1">
             </div>
         </form>
     </div>
