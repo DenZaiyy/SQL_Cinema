@@ -10,9 +10,15 @@ class HomeController
         $sql = "SELECT id_film, title, DATE_FORMAT(date_release, '%Y') dateRealease, TIME_FORMAT(SEC_TO_TIME(duration*60),'%H:%i') duration, picture 
         FROM film
         ORDER BY date_release DESC
-        LIMIT 3";
+        LIMIT 5";
+
+        $sql2 = "SELECT id_film, title, DATE_FORMAT(date_release, '%Y') dateRealease, TIME_FORMAT(SEC_TO_TIME(duration*60),'%H:%i') duration, note, picture
+        FROM film
+        ORDER BY note DESC
+        LIMIT 5";
 
         $films = $dao->executeRequest($sql);
+        $notes = $dao->executeRequest($sql2);
         require 'view/home/home.php';
     }
 }
