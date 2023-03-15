@@ -57,10 +57,7 @@ class GenreController
 
                 $addGenre = $dao->executeRequest($sql, $params);
 
-                $id = $db->lastInsertId();
-                $this->detailGenre($id);
-
-                header('Location: index.php?action=detailGenre?id=' . $id);
+                $this->listGenres();
             }
         } else {
             header('Location: index.php');

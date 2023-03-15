@@ -144,11 +144,9 @@ class ActorController
 
                 $addPerson = $dao->executeRequest($sql, $params);
                 $addActor = $dao->executeRequest($sql2);
-
-                $id = $db->lastInsertId();
-                $detail = $this->detailActor($id);
-
                 $addCasting = $dao->executeRequest($sql3, $params2);
+
+                $this->listActors();
             }
         } else {
             header('Location: index.php');

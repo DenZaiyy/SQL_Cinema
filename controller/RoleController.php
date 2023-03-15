@@ -63,10 +63,7 @@ class RoleController
 
                 $addRole = $dao->executeRequest($sql, $params);
 
-                $id = $db->lastInsertId();
-                $this->detailRole($id);
-
-                header('Location: index.php?action=detailRole?id=' . $id);
+                $this->listRoles();
             }
         } else {
             header('Location: index.php');

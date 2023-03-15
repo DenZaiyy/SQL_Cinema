@@ -129,9 +129,9 @@ class DirectorController
                          VALUES (LAST_INSERT_ID())";
 
                 $addPerson = $dao->executeRequest($sql, $params);
-                $id = $db->lastInsertId();
-                $this->detailDirector($id);
                 $addDirector = $dao->executeRequest($sql2);
+
+                $this->listDirectors();
             }
         } else {
             header('Location: index.php');

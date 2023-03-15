@@ -144,11 +144,9 @@ class FilmController
                 }
 
                 $addFilm = $dao->executeRequest($sql, $params);
-
-                $id = $db->lastInsertId();
-                $this->detailFilm($id);
-
                 $addGenre = $dao->executeRequest($sql2, $params2);
+
+                $this->listFilms();
             }
         } else {
             header('Location: index.php');
