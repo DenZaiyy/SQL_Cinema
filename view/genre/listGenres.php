@@ -12,7 +12,7 @@ ob_start(); //def : Enclenche la temporisation de sortie
 
                 <a href="index.php?action=detailGenre&id=<?= $genre['id_genre'] ?>">
                     <div class="uk-width-auto uk-height-match" uk-scrollspy="target: > div; cls: uk-animation-fade; delay: 500">
-                        <div class="uk-card uk-card-small uk-card-default uk-height-match uk-padding-small">
+                        <div class="uk-card uk-card-small uk-card-default uk-height-match uk-padding-small uk-border-rounded">
                             <strong class=""><?= $genre['label'] ?></strong>
                         </div>
                     </div>

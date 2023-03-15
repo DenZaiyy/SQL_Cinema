@@ -12,7 +12,7 @@ ob_start(); //def : Enclenche la temporisation de sortie
 
                 <a href="index.php?action=detailRole&id=<?= $role['id_role'] ?>">
                     <div class="uk-width-auto uk-height-match" uk-scrollspy="target: > div; cls: uk-animation-fade; delay: 500">
-                        <div class="uk-card uk-card-small uk-card-default uk-height-match uk-padding-small">
+                        <div class="uk-card uk-card-small uk-card-default uk-height-match uk-padding-small uk-border-rounded">
                             <strong class=""><?= $role['label'] ?></strong>
                         </div>
                     </div>

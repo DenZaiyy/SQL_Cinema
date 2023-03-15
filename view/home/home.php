@@ -6,7 +6,7 @@ ob_start(); //def :
     <h1 class="uk-heading-line uk-text-center"><span>Last releases</span></h1>
     <h2 class="uk-text-center">The 5 most recent movies</h2>
 
-    <div class="uk-grid-match uk-grid-small uk-flex-center" uk-grid>
+    <div class="uk-grid-match uk-flex-center" uk-grid>
 
         <?php
         while ($film = $films->fetch()) { ?>
@@ -30,9 +30,11 @@ ob_start(); //def :
         ?>
     </div>
 
+    <hr class="uk-divider-small uk-text-center">
+
     <h2 class="uk-text-center">Top 5 rated movies</h2>
 
-    <div class="uk-grid-match uk-grid-small uk-flex-center" uk-grid>
+    <div class="uk-grid-match uk-flex-center" uk-grid>
         <?php foreach ($notes as $note) { ?>
             <div class="uk-width-auto uk-height-match" uk-scrollspy="target: > div; cls: uk-animation-fade; delay: 500">
                 <div class="uk-card uk-card-small uk-card-default uk-height-match uk-border-rounded ">
