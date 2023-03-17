@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="public/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.5.9/css/uikit.min.css">
     <link rel="shortcut icon" href="../public/img/icons8-film-projector-48.png" type="image/x-icon">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.5.9/js/uikit.min.js" integrity="sha512-OZ9Sq7ecGckkqgxa8t/415BRNoz2GIInOsu8Qjj99r9IlBCq2XJlm9T9z//D4W1lrl+xCdXzq0EYfMo8DZJ+KA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.5.9/js/uikit-icons.min.js" integrity="sha512-hcz3GoZLfjU/z1OyArGvM1dVgrzpWcU3jnYaC6klc2gdy9HxrFkmoWmcUYbraeS+V/GWSgfv6upr9ff4RVyQPw==" crossorigin="anonymous"></script>
+    <script src="app/script.js"></script>
     <title><?= $title ?></title>
 </head>
 
@@ -46,7 +50,8 @@
                         <div class="uk-margin-right">
                             <form class="uk-search uk-search-default">
                                 <span uk-search-icon></span>
-                                <input class="uk-search-input" type="search" name="searchbar" placeholder="Search" aria-label="Search">
+                                <input class="uk-search-input" type="search" name="searchbar" placeholder="Search" id="input" autocomplete="off" aria-label="Search">
+                                <ul uk-dropdown="mode: click" id="dropdown" class="uk-list uk-list-divider uk-link-text"></ul>
                             </form>
                         </div>
 
@@ -80,13 +85,7 @@
     </main>
     <footer class="uk-flex uk-flex-center uk-flex-middle">
         <small>2023 &copy; Cinema - Cinema by <a href="https://github.com/DenZaiyy" target="_blank">KevinG</a></small>
-
     </footer>
-
-
-    <script src="../public/js/script.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.5.9/js/uikit.min.js" integrity="sha512-OZ9Sq7ecGckkqgxa8t/415BRNoz2GIInOsu8Qjj99r9IlBCq2XJlm9T9z//D4W1lrl+xCdXzq0EYfMo8DZJ+KA==" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.5.9/js/uikit-icons.min.js" integrity="sha512-hcz3GoZLfjU/z1OyArGvM1dVgrzpWcU3jnYaC6klc2gdy9HxrFkmoWmcUYbraeS+V/GWSgfv6upr9ff4RVyQPw==" crossorigin="anonymous"></script>
 </body>
 
 </html>

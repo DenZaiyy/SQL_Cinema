@@ -93,6 +93,9 @@ if (isset($_GET['action'])) {
         case "formRole":
             $ctrRole->formRole();
             break;
+        case "searchFilm":
+            $ctrFilm->searchFilm();
+            break;
     }
 } else {
     //Si l'url de contient pas d'action enregistrer, ont fait appel au constructeur homepage, pour afficher la page d'acceuil par défaut

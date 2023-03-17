@@ -152,4 +152,35 @@ class FilmController
             header('Location: index.php');
         }
     }
+
+    public function searchFilm()
+    {
+        if (isset($_POST['s'])) {
+
+            $dao = new DAO();
+
+            $key = "%{$_POST['s']}%";
+
+            $sql = 'SELECT * FROM film
+                    WHERE title
+                    LIKE ?
+                    LIMIT 5';
+
+            $params = [$key];
+
+            $stmt = $dao->executeRequest($sql, $params);
+
+            $results = $stmt->fetchAll();
+
+            if ($stmt->rowCount() > 0) {
+                foreach ($results as $result) { ?>
+                    <li>
+                        <a href="index.php?action=detailFilm&id=<?= $result['id_film'] ?>"><?= $result['title'] ?></a>
+                    </li>
+<?php }
+            } else {
+                echo "not found";
+            }
+        }
+    }
 }
