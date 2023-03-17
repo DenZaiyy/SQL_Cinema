@@ -1,31 +1,29 @@
 <?php
 ob_start(); //def :
-// $genre = $genres->fetch();
-
+$role = $roles->fetch();
 ?>
 
 <div class="uk-section uk-section-secondary" style="min-height: 90vh;">
     <div class="uk-container">
-        <h1>List of actors playing this role</h1>
+        <h1>List of actors playing "<?= $role['label'] ?>"</h1>
 
-        <div class="uk-grid-match uk-grid-small" uk-grid>
-            <?php
-            while ($role = $roles->fetch()) { ?>
-                <div class="uk-width-auto uk-height-match" uk-scrollspy="target: > div; cls: uk-animation-fade; delay: 500">
-                    <div class="uk-card uk-card-small uk-card-default uk-height-match">
-                        <figure class="uk-padding-small uk-height-match">
-                            <a href="index.php?action=detailFilm&id=<?= $role['id_film']; ?>">
-                                <img src="<?= $role["picture"]; ?>" alt="picture of film : <?= $genre["title"]; ?>" width="300">
-                            </a>
-                            <figcaption class="uk-text-center uk-margin-small-top">
-                                <strong><?= $genre['title']; ?></strong>
-                            </figcaption>
-                        </figure>
-
-                    </div>
-                </div>
-            <?php } ?>
-        </div>
+        <table class="uk-table uk-table-striped">
+            <thead>
+                <tr>
+                    <th>Name of actor</th>
+                    <th>Title of film</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                while ($casting = $castings->fetch()) { ?>
+                    <tr>
+                        <td><a href="index.php?action=detailActor&id=<?= $casting['id_actor'] ?>"><?= strtoupper($casting["lastname"]) . ' ' . $casting["firstname"] ?></a></td>
+                        <td><a href="index.php?action=detailFilm&id=<?= $casting['id_film'] ?>"><?= $casting['title']; ?></a></td>
+                    </tr>
+                <?php } ?>
+            </tbody>
+        </table>
     </div>
 </div>
 
@@ -33,6 +31,6 @@ ob_start(); //def :
 
 
 <?php
-$title = "List of movies for genre";
+$title = "List for " . $role['label'];
 $content = ob_get_clean(); //def 
 require "view/template.php";
