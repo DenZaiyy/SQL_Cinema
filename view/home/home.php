@@ -21,6 +21,7 @@ ob_start(); //def :
                             <a class="uk-link-toggle" href="index.php?action=detailFilm&id=<?= $film['id_film']; ?>"><strong class="uk-margin-remove"><?= $film["title"] ?></strong></a>
                             <p class="uk-margin-remove">Duration: <?= $film["duration"] ?></p>
                             <p class="uk-margin-remove">Date of release: <?= $film["dateRealease"] ?></p>
+                            <p class="uk-margin-remove">Note: <?= $film["note"] ?>/5</p>
                         </figcaption>
                     </figure>
                 </div>
@@ -46,7 +47,7 @@ ob_start(); //def :
                             <a class="uk-link-toggle" href="index.php?action=detailFilm&id=<?= $note['id_film']; ?>"><strong class="uk-margin-remove"><?= $note["title"] ?></strong></a>
                             <p class="uk-margin-remove">Duration: <?= $note["duration"] ?></p>
                             <p class="uk-margin-remove">Date of release: <?= $note["dateRealease"] ?></p>
-                            <p class="uk-margin-remove">Note: <?= $note["note"] ?></p>
+                            <p class="uk-margin-remove">Note: <?= $note["note"] ?>/5</p>
                         </figcaption>
                     </figure>
                 </div>
