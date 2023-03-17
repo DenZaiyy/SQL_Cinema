@@ -25,7 +25,7 @@ class DirectorController
                 WHERE d.id_person = p.id_person
                 AND d.id_director = :id';
 
-        $sql2 = 'SELECT title, date_format(date_release, "%Y") Year, duration
+        $sql2 = 'SELECT id_film, title, date_format(date_release, "%Y") Year, duration
                 FROM film
                 WHERE id_director = :id';
 

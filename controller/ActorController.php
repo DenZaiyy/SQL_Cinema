@@ -25,7 +25,7 @@ class ActorController
                 WHERE a.id_person = p.id_person
                 AND a.id_actor = :id';
 
-        $sql2 = 'SELECT f.title, r.label, DATE_FORMAT(f.date_release, "%Y") Year
+        $sql2 = 'SELECT f.id_film, r.id_role, f.title, r.label, DATE_FORMAT(f.date_release, "%Y") Year
                 FROM film f, role r, actor a, person p, casting c
                 WHERE a.id_person = p.id_person
                 AND c.id_actor = a.id_actor

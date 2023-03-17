@@ -52,9 +52,9 @@ $film = $films->fetch();
 
                             <?php while ($casting = $castings->fetch()) { ?>
                                 <tr>
-                                    <td><?= strtoupper($casting['lastname']) . " " . $casting['firstname']; ?></td>
+                                    <td><a href="index.php?action=detailActor&id=<?= $casting['id_actor'] ?>"><?= strtoupper($casting['lastname']) . " " . $casting['firstname']; ?></a></td>
                                     <td><?= $casting['gender']; ?></td>
-                                    <td><?= $casting['label']; ?></td>
+                                    <td><a href="index.php?action=detailRole&id=<?= $casting['id_role'] ?>"><?= $casting['label']; ?></a></td>
                                 </tr>
                             <?php } ?>
 

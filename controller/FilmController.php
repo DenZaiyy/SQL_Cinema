@@ -25,7 +25,7 @@ class FilmController
                 WHERE id_film = :id
                 ORDER BY date_release DESC';
 
-        $sql2 = 'SELECT p.id_person, p.lastname, p.firstname, p.gender, r.label
+        $sql2 = 'SELECT a.id_actor, p.id_person, r.id_role, p.lastname, p.firstname, p.gender, r.label
                  FROM casting c, person p, film f, actor a, role r
                  WHERE c.id_actor = a.id_actor
                  AND c.id_role = r.id_role

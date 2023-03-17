@@ -33,8 +33,8 @@ $actor = $actors->fetch();
                         <?php
                         foreach ($cast->fetchAll() as $casting) { ?>
                             <tr>
-                                <td><?= $casting['title']; ?></td>
-                                <td><?= $casting['label']; ?></td>
+                                <td><a href="index.php?action=detailFilm&id=<?= $casting['id_film'] ?>"><?= $casting['title']; ?></a></td>
+                                <td><a href="index.php?action=detailRole&id=<?= $casting['id_role'] ?>"><?= $casting['label']; ?></a></td>
                                 <td><?= $casting['Year']; ?></td>
                             </tr>
                         <?php } ?>
