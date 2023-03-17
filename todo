@@ -1,11 +1,2 @@
 TODO:
-      - Faire les formulaires pour ajouter:
-            - Réalisateur (ajout de personne puis add lastid to real)
-            - Role d'un acteur pour un film
-      - Liste des rôles (au clique d'un role, afficher le détail du rôle (Liste des acteurs ayant joué ce role, et le film))
-
       - hash nom de l'image à l'upload (hash sha256)
-      - Ajout barre de recherche fonctionnel au menu
-      - 5 films les plus récent sur la homepage
-      - 5 films les mieux notés sur la homepage
-      - TESTER en AJAX
