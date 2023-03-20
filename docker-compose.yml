@@ -12,7 +12,7 @@ services:
   db:
     image: mysql:8.0.30
     container_name: db
-    restart: always
+    restart: on-failure
     command: --default-authentication-plugin=mysql_native_password
     environment:
       - MYSQL_ROOT_PASSWORD=test123
@@ -21,7 +21,7 @@ services:
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
-    restart: always
+    restart: on-failure
     ports:
       - 8888:80
     environment:
