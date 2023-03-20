@@ -77,7 +77,7 @@ if (isset($_GET['action'])) {
         case "addRole":
             $ctrRole->addRole();
             break;
-            // FORMS
+            // FORMS ADD
         case "formActor":
             $ctrActor->formActor();
             break;
@@ -92,6 +92,10 @@ if (isset($_GET['action'])) {
             break;
         case "formRole":
             $ctrRole->formRole();
+            break;
+            // DELETE
+        case "deleteFilm":
+            $ctrFilm->deleteFilm($id);
             break;
             // SEARCH
         case "searchFilm":

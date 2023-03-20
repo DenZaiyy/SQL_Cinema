@@ -18,6 +18,9 @@ $film = $films->fetch();
 
             <div class="uk-width-auto">
                 <h1>Details of <strong><?= $film["title"] ?></strong></h1>
+                <form action="index.php?action=deleteFilm&id=<?= $film['id_film']; ?>" method="post" onsubmit="return confirm('Are you sure you want to delete this film?')">
+                    <input class="uk-button uk-button-default" type="submit" name="submit" value="Delete this film">
+                </form>
 
                 <table class="uk-table uk-table-striped uk-text-center uk-table-hover">
                     <thead>

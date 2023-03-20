@@ -22,7 +22,7 @@ class FilmController
     {
         $dao = new DAO();
 
-        $sql = 'SELECT title, date_format(date_release, "%Y") Year, duration, synopsis, note, picture
+        $sql = 'SELECT id_film, title, date_format(date_release, "%Y") Year, duration, synopsis, note, picture
                 FROM film
                 WHERE id_film = :id
                 ORDER BY date_release DESC';
@@ -155,6 +155,24 @@ class FilmController
             }
         } else {
             header('Location: index.php');
+        }
+    }
+
+    public function deleteFilm($id)
+    {
+        if (isset($_POST['submit'])) {
+            $dao = new DAO();
+
+            $sql2 = 'DELETE FROM film
+                    WHERE id_film = :id';
+
+            $params = ['id' => $id];
+
+            $delete = $dao->executeRequest($sql2, $params);
+
+            header('location: index.php');
+        } else {
+            echo "Erreur de suppression";
         }
     }
 
