@@ -35,7 +35,6 @@ ob_start();
                 </select>
             </div>
             <div class="uk-margin-small uk-width-1-1">
-                <label for="default"><input type="checkbox" name="default" value="">Nothing</label>
                 <?php foreach ($genres as $genre) { ?>
                     <label class="uk-margin-small-left"><input class="uk-checkbox" type="checkbox" name="id_genre" value="<?= $genre['id_genre'] ?>"> <?= $genre['label'] ?></label>
                 <?php } ?>

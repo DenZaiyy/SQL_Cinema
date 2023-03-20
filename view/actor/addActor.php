@@ -39,7 +39,7 @@ ob_start();
                     <option value="">Choose a film</option>
                     <?php foreach ($films as $film) { ?>
                         <option value="<?= $film['id_film'] ?>"><?= $film['title'] ?></option>
-                    <? } ?>
+                    <?php } ?>
                 </select>
             </div>
             <div class="uk-margin-small uk-width-1-3">
@@ -48,7 +48,7 @@ ob_start();
                     <option value="default">Choose a role</option>
                     <?php foreach ($roles as $role) { ?>
                         <option value="<?= $role['id_role'] ?>"><?= $role['label'] ?></option>
-                    <? } ?>
+                    <?php } ?>
                 </select>
             </div>
             <div class="uk-margin-small uk-width-1-2">
