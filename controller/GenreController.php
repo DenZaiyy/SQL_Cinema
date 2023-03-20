@@ -3,6 +3,7 @@ require_once 'app/DAO.php';
 
 class GenreController
 {
+    // function permettant de récupérer la liste de tout les genres de films enregistrées en bdd
     public function listGenres()
     {
         $dao = new DAO();
@@ -16,6 +17,7 @@ class GenreController
         require 'view/genre/listGenres.php';
     }
 
+    // function permettant de récupérer la liste de tout les films étant associé a ce genre ci
     public function detailGenre($id)
     {
         $dao = new DAO();
@@ -33,11 +35,13 @@ class GenreController
         require 'view/genre/detailGenre.php';
     }
 
+    // function qui appel le formulaire d'ajout de nouveaux genres
     public function formGenre()
     {
         require 'view/genre/addGenre.php';
     }
 
+    // function pour ajouter un nouveau genre en se basant sur le formulaire crée
     public function addGenre()
     {
         $dao = new DAO();

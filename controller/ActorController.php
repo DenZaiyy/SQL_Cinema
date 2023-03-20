@@ -3,6 +3,8 @@ require_once 'app/DAO.php';
 
 class ActorController
 {
+
+    // function permettant de récupérer la liste de tout les acteurs enregistrés en bdd
     public function listActors()
     {
         $dao = new DAO();
@@ -16,6 +18,7 @@ class ActorController
         require 'view/actor/listActors.php';
     }
 
+    // function permettant d'afficher le détail d'un acteur en se basant sur son ID (récupérer en bdd)
     public function detailActor($id)
     {
         $dao = new DAO();
@@ -40,6 +43,8 @@ class ActorController
         require 'view/actor/detailActor.php';
     }
 
+
+    // function qui permet de récupérer le titre de tout les films enregistrer en bdd, ainsi que les rôles pour pouvoir ajouter un nouvel acteur dans un film et lui assignant un role
     public function formActor()
     {
         $dao = new DAO();
@@ -56,6 +61,7 @@ class ActorController
         require 'view/actor/addActor.php';
     }
 
+    // function permettant d'ajouter un nouvel acteur dans la base de données (en se basant sur le formulaire crée)
     public function addActor()
     {
         $dao = new DAO();

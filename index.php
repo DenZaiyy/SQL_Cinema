@@ -93,6 +93,7 @@ if (isset($_GET['action'])) {
         case "formRole":
             $ctrRole->formRole();
             break;
+            // SEARCH
         case "searchFilm":
             $ctrFilm->searchFilm();
             break;

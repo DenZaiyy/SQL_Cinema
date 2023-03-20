@@ -3,6 +3,8 @@ require_once 'app/DAO.php';
 
 class DirectorController
 {
+
+    // function permettant de récupérer la liste de tout les réalisateurs enregistrées en base de de données
     public function listDirectors()
     {
         $dao = new DAO();
@@ -16,6 +18,7 @@ class DirectorController
         require 'view/director/listDirectors.php';
     }
 
+    // function permettant d'afficher la filmographie d'un réalisateur se basant sur son ID
     public function detailDirector($id)
     {
         $dao = new DAO();
@@ -36,22 +39,14 @@ class DirectorController
         require 'view/director/detailDirector.php';
     }
 
+    // function permettant d'afficher le formulaire pour ajouter un nouveau réalisateur en bdd
     public function formDirector()
     {
-        $dao = new DAO();
-
-        $sql = 'SELECT id_film, title
-                FROM film';
-
-        $sql2 = 'SELECT id_role, label
-                 FROM role';
-
-        $films = $dao->executeRequest($sql);
-        $roles = $dao->executeRequest($sql2);
-
         require 'view/director/addDirector.php';
     }
 
+    // function permettant d'ajouter un nouveau réalisateur en bdd a l'aide du formulaire crée
+    // On va d'abord crée une personne (pour l'ajouter en bdd) et ensuite associé l'ajout de la personne au nouveau réalisateur à ajouter
     public function addDirector()
     {
         $dao = new DAO();

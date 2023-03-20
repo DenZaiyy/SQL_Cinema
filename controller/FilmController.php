@@ -4,6 +4,7 @@ require_once 'controller/DirectorController.php';
 
 class FilmController
 {
+    // function qui permet de récupérer la liste de tout les films ajoutés en BDD
     public function listFilms()
     {
         $dao = new DAO();
@@ -16,6 +17,7 @@ class FilmController
         require 'view/film/listFilms.php';
     }
 
+    // function qui permet d'avoir un détail de film (casting) se basant sur son ID (référencer sur la bdd)
     public function detailFilm($id)
     {
         $dao = new DAO();
@@ -40,6 +42,7 @@ class FilmController
         require 'view/film/detailFilm.php';
     }
 
+    // function qui permet de récupérer la liste des réalisateurs à l'ajout d'un film et renvoie vers le formulaire pour ajouter un nouveau film
     public function formFilm()
     {
         $dao = new DAO();
@@ -57,6 +60,8 @@ class FilmController
         require 'view/film/addFilm.php';
     }
 
+    // function qui permet d'ajouter un film en base de données à l'aide de son formulaire crée
+    // On fitre les input pour éviter les fails de sécurité, puis on filtre l'upload d'image pour éviter d'upload autre chose qu'une image ainsi que sa taille
     public function addFilm()
     {
         $dao = new DAO();
@@ -153,6 +158,7 @@ class FilmController
         }
     }
 
+    // Function permettant la recherche de film dans la barre de recherche se situant dans la nav
     public function searchFilm()
     {
         if (isset($_POST['s'])) {

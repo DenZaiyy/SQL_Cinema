@@ -3,6 +3,7 @@ require_once 'app/DAO.php';
 
 class RoleController
 {
+    // function permettant d'afficher la liste de tout les rôles disponible et enregistrer en bdd
     public function listRoles()
     {
         $dao = new DAO();
@@ -15,6 +16,7 @@ class RoleController
         require 'view/role/listRoles.php';
     }
 
+    // function permettant d'afficher la liste de tout les acteurs ainsi que les films étant associé a ce rôle
     public function detailRole($id)
     {
         $dao = new DAO();
@@ -38,11 +40,13 @@ class RoleController
         require 'view/role/detailRole.php';
     }
 
+    // function permettant de redigérer vers le formulaire d'ajout de nouveau rôle
     public function formRole()
     {
         require 'view/role/addRole.php';
     }
 
+    // function permettant d'ajouter un nouveau role en bdd a l'aide du formulaire crée
     public function addRole()
     {
         $dao = new DAO();

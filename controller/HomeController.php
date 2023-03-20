@@ -3,6 +3,7 @@ require_once 'app/DAO.php';
 
 class HomeController
 {
+    // function permettant d'afficher les 5 films les plus récents ainsi que les 5 films les mieux notés
     public function homePage()
     {
         $dao = new DAO();
