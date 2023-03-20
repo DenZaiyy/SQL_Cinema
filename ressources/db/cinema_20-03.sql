@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : db:3306
--- Généré le : lun. 20 mars 2023 à 09:00
+-- Généré le : lun. 20 mars 2023 à 14:39
 -- Version du serveur : 8.0.30
 -- Version de PHP : 8.1.15
 
@@ -372,7 +372,7 @@ ALTER TABLE `actor`
 -- Contraintes pour la table `casting`
 --
 ALTER TABLE `casting`
-  ADD CONSTRAINT `casting_ibfk_1` FOREIGN KEY (`id_film`) REFERENCES `film` (`id_film`),
+  ADD CONSTRAINT `casting_ibfk_1` FOREIGN KEY (`id_film`) REFERENCES `film` (`id_film`) ON DELETE CASCADE ON UPDATE RESTRICT,
   ADD CONSTRAINT `casting_ibfk_2` FOREIGN KEY (`id_actor`) REFERENCES `actor` (`id_actor`),
   ADD CONSTRAINT `casting_ibfk_3` FOREIGN KEY (`id_role`) REFERENCES `role` (`id_role`);
 
@@ -386,13 +386,13 @@ ALTER TABLE `director`
 -- Contraintes pour la table `film`
 --
 ALTER TABLE `film`
-  ADD CONSTRAINT `film_ibfk_1` FOREIGN KEY (`id_director`) REFERENCES `director` (`id_director`);
+  ADD CONSTRAINT `film_ibfk_1` FOREIGN KEY (`id_director`) REFERENCES `director` (`id_director`) ON DELETE CASCADE ON UPDATE RESTRICT;
 
 --
 -- Contraintes pour la table `movie_genre`
 --
 ALTER TABLE `movie_genre`
-  ADD CONSTRAINT `movie_genre_ibfk_1` FOREIGN KEY (`id_film`) REFERENCES `film` (`id_film`),
+  ADD CONSTRAINT `movie_genre_ibfk_1` FOREIGN KEY (`id_film`) REFERENCES `film` (`id_film`) ON DELETE CASCADE ON UPDATE RESTRICT,
   ADD CONSTRAINT `movie_genre_ibfk_2` FOREIGN KEY (`id_genre`) REFERENCES `genre` (`id_genre`);
 COMMIT;
 
